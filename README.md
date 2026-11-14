@@ -11,6 +11,9 @@ Membangun konektivitas dua LAN menggunakan R1 MikroTik hAP lite RB941-2nD dan R2
 > Cisco Packet Tracer digunakan untuk menggambar desain/topologi. Konfigurasi diterapkan pada perangkat MikroTik, bukan router Cisco di Packet Tracer. Ini adalah praktik pembelajaran di lingkungan lab, bukan jaringan produksi.
 
 ## Topologi dan IP addressing
+Berikut desain topologi jaringan yang digunakan dalam proyek ini.
+
+![Network Topology](topology/Screenshot%202026-11-14%20204012.png)
 
 | Perangkat | Interface | IP / metode | Peran |
 |---|---|---|---|
@@ -63,6 +66,9 @@ Trafik LAN B mengalami NAT pada R2 lalu NAT kembali pada R1 (double NAT).
 Rule `input` mengontrol trafik yang ditujukan ke router. Rule `forward` mengizinkan trafik LAN B yang diteruskan melalui `ether1`. Tidak ada rule drop umum pada chain `forward`, sehingga tidak dapat disimpulkan bahwa seluruh trafik forward lain otomatis ditolak.
 
 ## Pengujian
+Pengujian gateway R2 dan konektivitas internet.
+
+![Ubuntu Ping Test](testing/ubuntu-ping-test.png)
 | Sumber | Tujuan | Hasil |
 |---|---|---|
 | Ubuntu / LAN B | 192.168.20.1 | Ping berhasil |
@@ -70,8 +76,10 @@ Rule `input` mengontrol trafik yang ditujukan ke router. Rule `forward` mengizin
 | Windows / LAN A | 192.168.20.1 | Request timed out |
 
 Ping Windows menuju `192.168.20.1` ditujukan ke interface LAN R2. Trafik masuk melalui `ether1` dan sesuai dengan rule input drop dari `ether1`.
+![Windows Ping Test](testing/windows-ping-test.png)
 
 ### Counter firewall R2
+![Firewall Counters](testing/firewall-counters.png)
 | No. | Chain | Action | Packets | Interpretasi |
 |---:|---|---|---:|---|
 | 0 | input | accept | 1,011 | Established/related diterima |
