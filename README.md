@@ -94,13 +94,3 @@ Rekomendasi di atas merupakan evaluasi lanjutan dan tidak diklaim sudah diterapk
 ## Kesimpulan
 Lab menunjukkan konektivitas LAN A dan LAN B melalui dua router MikroTik, penggunaan static/default route, DHCP, NAT, DNS, serta firewall dasar. Hasil ping dan counter firewall menjadi bukti pengujian. Proyek ini adalah dokumentasi praktik pembelajaran di lingkungan lab.
 
-## Struktur repository yang disarankan
-```text
-mikrotik-routing-firewall-lab/
-├── README.md
-├── topology/network-topology.png
-├── configuration/R1-hAP-lite.rsc
-├── configuration/R2-CHR.rsc
-├── testing/
-└── report/Project-02-MikroTik-Routing-Firewall.pdf
-```
